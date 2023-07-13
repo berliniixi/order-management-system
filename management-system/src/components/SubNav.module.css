@@ -1,0 +1,26 @@
+.product-list {
+  display: flex;
+  text-decoration: none;
+  padding: 1rem;
+  width: 70vh;
+}
+
+.product-list button {
+  font-size: 12px;
+  font-weight: bold;
+  border: none;
+  background-color: white;
+  /* border: 1px solid #242424; */
+  /* border-top-left-radius: 0.8rem;
+  border-bottom-right-radius: 0.8rem; */
+  border-radius: 0.6rem;
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.product-list button:hover {
+  transition: 0.4s ease;
+  color: white;
+  background-color: #242424;
+}

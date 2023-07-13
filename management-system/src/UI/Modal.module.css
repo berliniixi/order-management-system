@@ -1,0 +1,103 @@
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 auto;
+  max-width: 90%;
+  height: 80vh;
+}
+
+.menu {
+  border-top-left-radius: 5rem;
+  background-color: rgba(250, 141, 53, 0.884);
+}
+
+.menu-header,
+.table-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+}
+.sub-nav {
+  display: flex;
+  max-height: 10vh;
+  width: 50vw;
+  max-width: 50vw;
+  overflow: auto;
+}
+
+.products {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  overflow: scroll;
+  height: 50vh;
+  max-height: 50vh;
+}
+
+.products ul {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  max-width: 100%;
+  list-style: none;
+  gap: 1rem;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+  height: 10vh;
+}
+
+.cancel button,
+.get-bill button {
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  background-color: transparent;
+  border: 1px solid #242424;
+  border-top-left-radius: 0.8rem;
+  border-bottom-right-radius: 0.8rem;
+  width: 180px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.cancel button:hover,
+.get-bill button:hover {
+  transition: 0.4s ease;
+  color: white;
+  background-color: #242424;
+}
+
+.current-table {
+  border-bottom-right-radius: 5rem;
+  background-color: white;
+}
+
+.ordered-products {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  overflow-y: scroll;
+  height: 60vh;
+}
+
+.table-total {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 auto;
+  height: 10vh;
+}
+
+.table-total span {
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1.5rem;
+}

@@ -1,0 +1,42 @@
+.title-header {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 5rem;
+}
+.title-header nav {
+  width: 80%;
+}
+
+.title-header ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.link-list li {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.link-list a {
+  color: white;
+  text-decoration: none;
+  align-items: center;
+  padding: 1rem;
+  border-top-left-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+}
+
+.link-list a:hover {
+  transition: 0.6s ease;
+}
+
+.active-navLink {
+  border-radius: 0.6rem;
+  background-color: rgba(250, 141, 53, 0.884);
+}
+
+.navLink-icon {
+  margin-right: 0.5rem;
+}
