@@ -4,7 +4,7 @@
   margin: 0 auto;
   width: 80%;
   height: 70vh;
-  overflow: scroll;
+  overflow-x: scroll;
   box-shadow: 10px 10px 16px 14px rgba(0, 0, 0, 0.43);
   border-radius: 0.6rem;
 }

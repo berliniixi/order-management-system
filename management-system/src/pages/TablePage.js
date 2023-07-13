@@ -35,7 +35,16 @@ function TablePage() {
           onCancel={cancelHandler}
           nav={<SubNav />}
           orderedProducts={
-            <OrderedProducts products={products ? products : []} />
+            <OrderedProducts
+              products={
+                products
+                  ? JSON.parse(
+                      localStorage.getItem(`tableCartItems ${tableID}`)
+                    ) || []
+                  : []
+              }
+            />
+            // <orderedProducts products={products ? products : []} />
           }
         >
           <ProductList />

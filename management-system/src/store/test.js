@@ -7,7 +7,9 @@ const initialTestState = {
     tableName: null,
     tableID: null,
     tableCartItems: {
-      tableOrderID: [],
+      tableOrderID: localStorage.getItem("tableCartItems")
+        ? JSON.parse(localStorage.getItem("tableCartItems"))
+        : [],
     },
     tableTotalAmount: 0,
   },
@@ -32,6 +34,10 @@ const testSlice = createSlice({
       };
     },
     addItemToTable: (state, action) => {
+      // const newTableOrderID = action.payload.id;
+
+      // console.log("addItemToTable: newTableOrderID", newTableOrderID);
+
       const updatedTableCartItems = {
         ...state.table.tableCartItems,
         [initialTableOrderID]: [
@@ -44,6 +50,11 @@ const testSlice = createSlice({
         ...state.table,
         tableCartItems: updatedTableCartItems,
       };
+
+      localStorage.setItem(
+        `tableCartItems ${state.table.tableID}`,
+        JSON.stringify(updatedTableCartItems)
+      );
     },
   },
 });
