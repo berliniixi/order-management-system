@@ -24,19 +24,23 @@ const testSlice = createSlice({
 
       initialTableOrderID = newTableOrderID;
 
+      const prevCartItems = localStorage.getItem("tableCartItems")
+        ? JSON.parse(localStorage.getItem("tableCartItems"))
+        : [];
+
       state.table = {
         ...state.table,
         tableName: action.payload.name,
         tableID: action.payload.id,
         tableCartItems: {
-          [initialTableOrderID]: [],
+          [initialTableOrderID]: prevCartItems,
         },
       };
     },
     addItemToTable: (state, action) => {
-      // const newTableOrderID = action.payload.id;
-
-      // console.log("addItemToTable: newTableOrderID", newTableOrderID);
+      const prevCartItems = localStorage.getItem("tableCartItems")
+        ? JSON.parse(localStorage.getItem("tableCartItems"))
+        : [];
 
       const updatedTableCartItems = {
         ...state.table.tableCartItems,
