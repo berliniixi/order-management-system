@@ -20,33 +20,39 @@ const testSlice = createSlice({
   initialState: initialTestState,
   reducers: {
     setTable(state, action) {
+      const t = action.payload;
+
+      console.log("t", t);
+
       const newTableOrderID = action.payload.id;
 
       initialTableOrderID = newTableOrderID;
 
-      const prevCartItems = localStorage.getItem("tableCartItems")
-        ? JSON.parse(localStorage.getItem("tableCartItems"))
-        : [];
+      const prevCartItems = localStorage.getItem(
+        `tableCartItems ${action.payload.id}`
+      );
+      const parseData = JSON.parse(prevCartItems);
 
       state.table = {
         ...state.table,
         tableName: action.payload.name,
         tableID: action.payload.id,
         tableCartItems: {
-          [initialTableOrderID]: prevCartItems,
+          [initialTableOrderID]: [],
+          ...(parseData ? parseData : []),
         },
       };
     },
-    addItemToTable: (state, action) => {
-      const prevCartItems = localStorage.getItem("tableCartItems")
-        ? JSON.parse(localStorage.getItem("tableCartItems"))
-        : [];
 
+    addItemToTable: (state, action) => {
+      const product = action.payload;
+
+      console.log("product", product);
       const updatedTableCartItems = {
         ...state.table.tableCartItems,
         [initialTableOrderID]: [
           ...state.table.tableCartItems[initialTableOrderID],
-          action.payload,
+          product,
         ],
       };
 

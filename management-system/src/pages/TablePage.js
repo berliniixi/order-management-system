@@ -19,7 +19,6 @@ function TablePage() {
     dispatch(modalActions.toggle());
   };
 
-  console.log("TableID", tableID);
   const products = tableCartItems[tableID];
   // const products = DUMMY_ORDERS[tableID];
   // const products = tableCartItems;
@@ -37,14 +36,14 @@ function TablePage() {
           orderedProducts={
             <OrderedProducts
               products={
-                products
+                products // i read products from localStorage
                   ? JSON.parse(
                       localStorage.getItem(`tableCartItems ${tableID}`)
                     ) || []
                   : []
               }
             />
-            // <orderedProducts products={products ? products : []} />
+            // <orderedProducts products={tableOrderID} />
           }
         >
           <ProductList />
