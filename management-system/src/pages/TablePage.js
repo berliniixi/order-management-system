@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { modalActions } from "../store/modal";
 import ProductList from "../components/ProductList";
 import OrderedProducts from "../components/OrderedProducts";
-import { DUMMY_ORDERS } from "../Data/tableorders";
 
 function TablePage() {
   const dispatch = useDispatch();
@@ -20,9 +19,6 @@ function TablePage() {
   };
 
   const products = tableCartItems[tableID];
-  // const products = DUMMY_ORDERS[tableID];
-  // const products = tableCartItems;
-
   console.log("products: ", products);
   return (
     <>
@@ -36,14 +32,13 @@ function TablePage() {
           orderedProducts={
             <OrderedProducts
               products={
-                products // i read products from localStorage
+                products // read products from localStorage
                   ? JSON.parse(
                       localStorage.getItem(`tableCartItems ${tableID}`)
                     ) || []
                   : []
               }
             />
-            // <orderedProducts products={tableOrderID} />
           }
         >
           <ProductList />

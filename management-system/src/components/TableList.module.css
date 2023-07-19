@@ -19,3 +19,7 @@
   padding: 1rem;
   list-style: none;
 }
+
+.hasOrdered button {
+  background-color: rgba(250, 141, 53, 0.884);
+}

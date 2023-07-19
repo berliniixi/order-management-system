@@ -21,8 +21,16 @@ function TableList() {
     <div className={classes.tables}>
       <ul>
         {DUMMY_TABLES.map((table) => {
+          const tableWithOrders = localStorage.getItem(
+            `tableCartItems ${table.id}`
+          );
+
+          const parseTableWithOrders = JSON.parse(tableWithOrders);
           return (
-            <li key={table.id}>
+            <li
+              key={table.id}
+              className={parseTableWithOrders ? classes.hasOrdered : ""}
+            >
               <Table
                 tableNumber={table.name}
                 onClick={() => showTableNumberHandler(table)}

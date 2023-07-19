@@ -6,6 +6,7 @@ const initialTestState = {
   table: {
     tableName: null,
     tableID: null,
+    hasOrdered: false,
     tableCartItems: {
       tableOrderID: localStorage.getItem("tableCartItems")
         ? JSON.parse(localStorage.getItem("tableCartItems"))
@@ -20,10 +21,6 @@ const testSlice = createSlice({
   initialState: initialTestState,
   reducers: {
     setTable(state, action) {
-      const t = action.payload;
-
-      console.log("t", t);
-
       const newTableOrderID = action.payload.id;
 
       initialTableOrderID = newTableOrderID;
@@ -37,9 +34,10 @@ const testSlice = createSlice({
         ...state.table,
         tableName: action.payload.name,
         tableID: action.payload.id,
+        hasOrdered: parseData ? true : false,
         tableCartItems: {
           [initialTableOrderID]: [],
-          ...(parseData ? parseData : []),
+          ...parseData,
         },
       };
     },
@@ -58,6 +56,7 @@ const testSlice = createSlice({
 
       state.table = {
         ...state.table,
+        hasOrdered: true,
         tableCartItems: updatedTableCartItems,
       };
 

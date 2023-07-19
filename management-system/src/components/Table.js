@@ -2,12 +2,14 @@ import React from "react";
 
 import classes from "./Table.module.css";
 
-function Table(props) {
+function Table({ onClick, tableNumber }) {
+  // const tableClasses = hasOrdered ? classes.orderedClass : classes.table;
+
   return (
     <div className={classes.container}>
       <div className={classes.table}>
         <span>
-          <button onClick={props.onClick}>{props.tableNumber}</button>
+          <button onClick={onClick}>{tableNumber}</button>
         </span>
       </div>
     </div>
