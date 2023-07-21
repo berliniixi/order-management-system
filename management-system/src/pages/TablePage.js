@@ -29,6 +29,9 @@ function TablePage() {
           table={tableName}
           onCancel={cancelHandler}
           nav={<SubNav />}
+          total={JSON.parse(
+            localStorage.getItem(`TableTotalAmount ${tableID}`)
+          )}
           orderedProducts={
             <OrderedProducts
               products={

@@ -12,8 +12,7 @@ function OrderedProducts({ products }) {
             return (
               <li key={productDetails.id}>
                 <span>{productDetails.title}</span>
-                {/* <span>{productDetails.desc}</span>
-                <span>{productDetails.price}</span> */}
+                <span>{`$${productDetails.price}`}</span>
               </li>
             );
           })}

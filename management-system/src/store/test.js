@@ -12,7 +12,9 @@ const initialTestState = {
         ? JSON.parse(localStorage.getItem("tableCartItems"))
         : [],
     },
-    tableTotalAmount: 0,
+    tableTotalAmount: localStorage.getItem("TableTotalAmount")
+      ? JSON.parse(localStorage.getItem("TableTotalAmount"))
+      : 0,
   },
 };
 
@@ -30,6 +32,12 @@ const testSlice = createSlice({
       );
       const parseData = JSON.parse(prevCartItems);
 
+      const totalAmount = localStorage.getItem(
+        `TableTotalAmount ${action.payload.id}`
+      );
+
+      const parseTotalAmount = JSON.parse(totalAmount);
+
       state.table = {
         ...state.table,
         tableName: action.payload.name,
@@ -39,13 +47,19 @@ const testSlice = createSlice({
           [initialTableOrderID]: [],
           ...parseData,
         },
+        tableTotalAmount: parseTotalAmount,
       };
     },
 
-    addItemToTable: (state, action) => {
+    addItemToTable(state, action) {
       const product = action.payload;
 
-      console.log("product", product);
+      const productPrice = action.payload.price;
+      const updatedTableTotalAmount = (state.table.tableTotalAmount +=
+        productPrice);
+
+      console.log("updatedTableTotalAmount", updatedTableTotalAmount);
+
       const updatedTableCartItems = {
         ...state.table.tableCartItems,
         [initialTableOrderID]: [
@@ -58,7 +72,13 @@ const testSlice = createSlice({
         ...state.table,
         hasOrdered: true,
         tableCartItems: updatedTableCartItems,
+        tableTotalAmount: updatedTableTotalAmount,
       };
+
+      localStorage.setItem(
+        `TableTotalAmount ${state.table.tableID}`,
+        JSON.stringify(updatedTableTotalAmount)
+      );
 
       localStorage.setItem(
         `tableCartItems ${state.table.tableID}`,
