@@ -6,6 +6,9 @@ import AuthPage from "./pages/AuthPage";
 import TablePage from "./pages/TablePage";
 import CheckoutPage from "./pages/CheckoutPage";
 
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -32,7 +35,12 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <RouterProvider router={router} />;
+      <ToastContainer />
+    </>
+  );
 }
 
 export default App;

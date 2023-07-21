@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
 let initialTableOrderID = null;
 
@@ -75,6 +76,17 @@ const testSlice = createSlice({
         tableTotalAmount: updatedTableTotalAmount,
       };
 
+      toast.success(`${product.title} added to ${state.table.tableName}`, {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+
       localStorage.setItem(
         `TableTotalAmount ${state.table.tableID}`,
         JSON.stringify(updatedTableTotalAmount)
@@ -85,6 +97,8 @@ const testSlice = createSlice({
         JSON.stringify(updatedTableCartItems)
       );
     },
+
+    deleteProduct(state, action) {},
   },
 });
 
