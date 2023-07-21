@@ -41,6 +41,7 @@ function TablePage() {
                     ) || []
                   : []
               }
+              onDelete={() => alert("clicked")}
             />
           }
         >

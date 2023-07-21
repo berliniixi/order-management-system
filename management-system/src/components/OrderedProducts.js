@@ -1,9 +1,10 @@
 import React from "react";
 
-function OrderedProducts({ products }) {
+import { FaEuroSign } from "react-icons/fa";
+
+function OrderedProducts({ products, onDelete }) {
   const productItems = Object.values(products);
 
-  console.log("productItems: ", productItems);
   return (
     <>
       {productItems.map((product) => (
@@ -12,7 +13,13 @@ function OrderedProducts({ products }) {
             return (
               <li key={productDetails.id}>
                 <span>{productDetails.title}</span>
-                <span>{`$${productDetails.price}`}</span>
+
+                <span>
+                  <FaEuroSign /> {`${productDetails.price}`}
+                </span>
+                <span>
+                  <button onClick={onDelete}>X</button>
+                </span>
               </li>
             );
           })}

@@ -85,7 +85,33 @@
   overflow-y: scroll;
   height: 60vh;
 }
+.ordered-products ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 90%;
+}
+.ordered-products li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
 
+.ordered-products li:nth-child(even) {
+  background-color: #e7e6e6;
+}
+
+.ordered-products button {
+  border: none;
+  background-color: transparent;
+  color: red;
+  font-size: 20px;
+  cursor: pointer;
+}
 .table-total {
   display: grid;
   grid-template-columns: 1fr 1fr;
