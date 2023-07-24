@@ -1,9 +1,16 @@
 import React from "react";
 
 import { FaEuroSign } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { testActions } from "../store/test";
 
-function OrderedProducts({ products, onDelete }) {
+function OrderedProducts({ products }) {
+  const dispatch = useDispatch();
   const productItems = Object.values(products);
+
+  const deleteProductHandler = (productID) => {
+    dispatch(testActions.deleteProduct(productID));
+  };
 
   return (
     <>
@@ -18,7 +25,9 @@ function OrderedProducts({ products, onDelete }) {
                   <FaEuroSign /> {`${productDetails.price}`}
                 </span>
                 <span>
-                  <button onClick={onDelete}>X</button>
+                  <button onClick={() => deleteProductHandler(productDetails)}>
+                    X
+                  </button>
                 </span>
               </li>
             );

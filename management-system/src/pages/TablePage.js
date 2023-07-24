@@ -19,7 +19,9 @@ function TablePage() {
   };
 
   const products = tableCartItems[tableID];
-  console.log("products: ", products);
+
+  // console.log("products: ", products);
+
   return (
     <>
       {!showModal ? (
@@ -41,7 +43,6 @@ function TablePage() {
                     ) || []
                   : []
               }
-              onDelete={() => alert("clicked")}
             />
           }
         >

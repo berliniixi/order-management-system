@@ -25,11 +25,21 @@ function TableList() {
             `tableCartItems ${table.id}`
           );
 
+          const tableWithOpenAccount = localStorage.getItem(
+            `TableTotalAmount ${table.id}`
+          );
+
           const parseTableWithOrders = JSON.parse(tableWithOrders);
+
+          const parseTableWithOpenAccount = JSON.parse(tableWithOpenAccount);
           return (
             <li
               key={table.id}
-              className={parseTableWithOrders ? classes.hasOrdered : ""}
+              className={
+                parseTableWithOrders && parseTableWithOpenAccount
+                  ? classes.hasOrdered
+                  : ""
+              }
             >
               <Table
                 tableNumber={table.name}
