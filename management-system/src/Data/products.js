@@ -144,7 +144,7 @@ export const PRODUCTS = [
           },
           {
             id: "w4",
-            title: "Wine Item 2",
+            title: "Wine Item 4",
             image: "",
             desc: "Some words about the product",
             price: 7.5,

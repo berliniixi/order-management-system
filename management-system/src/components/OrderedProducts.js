@@ -17,10 +17,10 @@ function OrderedProducts({ products }) {
       {productItems.map((product) => (
         <React.Fragment key={product[0]}>
           {product.map((productDetails) => {
+            const randomID = Math.random();
             return (
               <li key={productDetails.id}>
                 <span>{productDetails.title}</span>
-
                 <span>
                   <FaEuroSign /> {`${productDetails.price}`}
                 </span>

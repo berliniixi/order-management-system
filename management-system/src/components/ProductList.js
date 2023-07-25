@@ -18,13 +18,19 @@ function ProductList() {
     <>
       {selectedCategory ? (
         selectedCategory.map((item) => {
+          const randomID = Math.random();
+
+          item = {
+            ...item,
+            id: randomID,
+          };
           return (
             <li key={item.id}>
               <Product
                 title={item.title}
                 desc={item.desc}
                 image={item.image}
-                price={item.price}
+                itemPrice={item.price}
                 onAdd={() => addToCartHandler(item)}
               />
             </li>

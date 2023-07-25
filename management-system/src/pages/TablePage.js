@@ -12,7 +12,7 @@ function TablePage() {
   const showModal = useSelector((state) => state.modal.toggle);
   const test = useSelector((state) => state.test.table);
 
-  const { tableID, tableName, tableCartItems } = test;
+  const { tableID, tableName, tableCartItems, tableTotalAmount } = test;
 
   const cancelHandler = () => {
     dispatch(modalActions.toggle());
@@ -31,9 +31,11 @@ function TablePage() {
           table={tableName}
           onCancel={cancelHandler}
           nav={<SubNav />}
-          total={JSON.parse(
-            localStorage.getItem(`TableTotalAmount ${tableID}`)
-          )}
+          total={
+            tableTotalAmount
+              ? JSON.parse(localStorage.getItem(`TableTotalAmount ${tableID}`))
+              : 0
+          }
           orderedProducts={
             <OrderedProducts
               products={

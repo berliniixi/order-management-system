@@ -3,6 +3,8 @@ import classes from "./Modal.module.css";
 import { FaEuroSign } from "react-icons/fa";
 
 function Modal(props) {
+  const total = `${props.total.toFixed(2)}`;
+
   return (
     <div className={classes.content}>
       <div className={classes.menu}>
@@ -35,7 +37,7 @@ function Modal(props) {
           </span>
           <span>
             <FaEuroSign />
-            <p>{props.total}</p>
+            <p>{total}</p>
           </span>
         </div>
       </div>
