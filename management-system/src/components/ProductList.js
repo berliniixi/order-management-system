@@ -18,11 +18,18 @@ function ProductList() {
     <>
       {selectedCategory ? (
         selectedCategory.map((item) => {
-          const randomID = Math.random();
+          // check if this functionality of keeping track the time after an item gets into the OrderedProducts
+          //by doing it on the component is more correct of doing it in the Redux
 
+          const randomID = Math.random();
+          const currentTime = new Date();
+          const hours = currentTime.getHours();
+          const minutes = currentTime.getMinutes();
+          const seconds = currentTime.getSeconds();
           item = {
             ...item,
-            id: randomID,
+            id: `${randomID}${item.id}`,
+            time: `${hours}:${minutes}:${seconds}`,
           };
           return (
             <li key={item.id}>

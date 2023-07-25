@@ -1,0 +1,7 @@
+.time {
+  display: flex;
+  justify-content: flex-end;
+  color: gray;
+  border-bottom: 1px solid black;
+  margin-bottom: 1rem;
+}
